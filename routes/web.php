@@ -15,7 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $listings = \App\Models\Listing::all();
-
     return view('listings', compact('listings'));
+
+});
+
+Route::get('/listings/{id}', function ($id) {
+    $listing = \App\Models\Listing::find($id);
+    return view('listing', compact('listing'));
 
 });
