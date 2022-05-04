@@ -33,7 +33,7 @@
 
 
 <main>
-    @yield('content')
+    {{ $slot }}
 </main>
 
 @include('partials.footer')
