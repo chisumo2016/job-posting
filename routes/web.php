@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('listings');
+    $listings = \App\Models\Listing::all();
+
+    return view('listings', compact('listings'));
 
 });
