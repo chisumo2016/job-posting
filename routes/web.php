@@ -19,8 +19,8 @@ Route::get('/', function () {
 
 });
 
-Route::get('/listings/{id}', function ($id) {
-    $listing = \App\Models\Listing::find($id);
+Route::get('/listings/{listing}', function (\App\Models\Listing $listing) {
+
     return view('listing', compact('listing'));
 
 });
