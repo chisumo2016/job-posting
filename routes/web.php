@@ -15,17 +15,27 @@ use Illuminate\Support\Facades\Route;
 */
 
 //All Listings
-Route::get('/',             [ListingController::class, 'index']);
+Route::get('/',  [ListingController::class, 'index']);
 
-//Show Listings
+//Create Listings Form
+Route::get('/listings/create',[ListingController::class, 'create']);
+
+//Store Listings Form
+Route::get('/listings',[ListingController::class, 'store']);
+
+//Show Single Listings
 Route::get('/listings/{listing}',[ListingController::class, 'show']);
+
+
+
 
 
 /*
  * Common Resource Routes:
  * index    -   Show all Listings
- * show     -   Show single listing
  * create   -   Show/Display form to create new Listing
+ * show     -   Show single listing
+
  * store    -   Store new Listing
  * edit     -   Show form to edit listing
  * Update   -   Update Listing
