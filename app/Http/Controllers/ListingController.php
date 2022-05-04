@@ -11,7 +11,7 @@ class ListingController extends Controller
     {
        //dd(request('tag'));
         $listings = Listing::latest()
-                ->filter(request(['tag']))
+                ->filter(request(['tag','search']))
                 ->get();
         return view('listings.index', compact('listings'));
     }
