@@ -25,10 +25,9 @@ Route::get('/listings/{listing}',[ListingController::class, 'show']);
  * Common Resource Routes:
  * index    -   Show all Listings
  * show     -   Show single listing
- * create   -   Show form to create new Listing
+ * create   -   Show/Display form to create new Listing
  * store    -   Store new Listing
  * edit     -   Show form to edit listing
- *
  * Update   -   Update Listing
  * destroy -    Delete Listing
  */
