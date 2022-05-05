@@ -58,6 +58,10 @@ class ListingController extends Controller
 
     public  function  update(Request $request, Listing $listing)
     {
+        // Make sure logged in user owner
+        if ($listing->user_id != auth()->id()){
+            abort(403, 'Unauthorized Action');
+        }
         //dd($request->file('logo'));
         $validator = $request->validate([
             'title'         => 'required',
@@ -83,6 +87,11 @@ class ListingController extends Controller
 
     public  function destroy(Listing $listing)
     {
+        // Make sure logged in user owner
+        if ($listing->user_id != auth()->id()){
+            abort(403, 'Unauthorized Action');
+        }
+
         $listing->delete();
 
         return redirect('/')->with('message', 'Listing deleted successfully');
