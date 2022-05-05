@@ -13,7 +13,7 @@ class ListingController extends Controller
        //dd(request('tag'));
         $listings = Listing::latest()
                 ->filter(request(['tag','search']))
-                ->get();
+                ->paginate(6);
         return view('listings.index', compact('listings'));
     }
 
