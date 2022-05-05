@@ -42,8 +42,18 @@ Route::get('/register', [UserController::class,'create']);
 //Create  New User
 Route::post('/users', [UserController::class,'store']);
 
-//Logout Use
+//Logout User
 Route::post('/logout', [UserController::class,'logout']);
+
+//Login User
+Route::get('/login', [UserController::class,'login']);
+
+//Login User
+Route::post('/users/authenticate', [UserController::class,'authenticate']);
+
+
+
+
 /*
  * Common Resource Routes:
  * index    -   Show all Listings
