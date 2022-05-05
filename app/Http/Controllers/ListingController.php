@@ -44,6 +44,8 @@ class ListingController extends Controller
             $validator['logo'] = $request->file('logo')->store('logos','public');
         }
 
+        $validator['user_id'] = auth()->id();
+
         Listing::create($validator);
 
         return redirect('/')->with('message', 'Listing Created Successfully');
@@ -71,6 +73,8 @@ class ListingController extends Controller
         if ($request->hasFile('logo')){
             $validator['logo'] = $request->file('logo')->store('logos','public');
         }
+
+        $validator['user_id'] = auth()->id();
 
         $listing->update($validator);
 
