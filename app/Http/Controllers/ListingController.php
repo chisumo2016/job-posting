@@ -29,6 +29,7 @@ class ListingController extends Controller
 
     public  function  store(Request $request)
     {
+        //dd($request->file('logo'));
         $validator = $request->validate([
             'title'         => 'required',
             'company'       => ['required', Rule::unique('listings','company')],
@@ -38,6 +39,10 @@ class ListingController extends Controller
             'tags'          => 'required',
             'description'   => 'required',
         ]);
+        //File Upload
+        if ($request->hasFile('logo')){
+            $validator['logo'] = $request->file('logo')->store('logos','public');
+        }
 
         Listing::create($validator);
 
