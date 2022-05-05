@@ -37,5 +37,7 @@
 </main>
 
 @include('partials.footer')
+
+<x-flash_message></x-flash_message>
 </body>
 </html>
