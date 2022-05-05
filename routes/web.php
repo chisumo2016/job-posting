@@ -22,10 +22,10 @@ Route::get('/',  [ListingController::class, 'index']);
 Route::get('/listings/create',[ListingController::class, 'create'])->middleware('auth');
 
 //Store Listings Form
-Route::post('/listings',[ListingController::class, 'store'])->middleware('auth');;
+Route::post('/listings',[ListingController::class, 'store'])->middleware('auth');
 
 //Edit Listings Form
-Route::get('/listings/{listing}/edit',[ListingController::class, 'edit'])->middleware('auth');;
+Route::get('/listings/{listing}/edit',[ListingController::class, 'edit'])->middleware('auth');
 
 //Update Listings Form
 Route::put('/listings/{listing}',[ListingController::class, 'update'])->middleware('auth');;
@@ -33,8 +33,13 @@ Route::put('/listings/{listing}',[ListingController::class, 'update'])->middlewa
 //Delete Listings Form
 Route::delete('/listings/{listing}',[ListingController::class, 'destroy'])->middleware('auth');;
 
+//Manage Listings
+Route::get('/listings/manage', [ListingController::class,'manage'])->middleware('auth');
+
 //Show Single Listings
 Route::get('/listings/{listing}',[ListingController::class, 'show']);
+
+
 
 //Show  Register / create form
 Route::get('/register', [UserController::class,'create'])->middleware('guest');
